@@ -1,0 +1,76 @@
+@using CITWEB.Services
+@{
+    var path = (ViewContext.HttpContext.Request.Path.Value ?? "/").TrimEnd('/').ToLowerInvariant();
+    if (string.IsNullOrEmpty(path)) path = "/";
+    var isHome = path == "/" || path == "/index";
+    var isLoggedIn = Context.Session.IsLoggedIn();
+    var userName = Context.Session.GetUserName() ?? "bạn";
+    var isAdmin = Context.Session.IsAdmin();
+}
+<header class="top-nav">
+    <div class="container">
+        <a href="/" class="brand">Serene</a>
+        <nav class="nav-links" aria-label="Điều hướng chính">
+            <a href="/" class="nav-link @(isHome ? "active" : "")">Tổng quan</a>
+            <a href="/Nhatky" class="nav-link @(path.Contains("nhatky") ? "active" : "")">Nhật ký</a>
+            <a href="/Nhiptho" class="nav-link @(path.Contains("nhiptho") ? "active" : "")">Nhịp thở</a>
+            <a href="/Giacngu" class="nav-link @(path.Contains("giacngu") ? "active" : "")">Giấc ngủ</a>
+            <a href="/Baothuc" class="nav-link @(path.Contains("baothuc") ? "active" : "")">Báo thức</a>
+            <a href="/Chedoanuong" class="nav-link @(path.Contains("chedoanuong") ? "active" : "")">Dinh dưỡng</a>
+            <a href="/Tapluyen" class="nav-link @(path.Contains("tapluyen") ? "active" : "")">Tập luyện</a>
+            <a href="/Thongke" class="nav-link @(path.Contains("thongke") ? "active" : "")">Xu hướng</a>
+        </nav>
+        <div class="nav-actions">
+            <i data-lucide="bell" class="icon" aria-hidden="true"></i>
+            <div class="user-menu" data-user-menu>
+                <button type="button"
+                        class="user-menu__trigger"
+                        aria-haspopup="menu"
+                        aria-expanded="false"
+                        data-user-menu-trigger
+                        title="@(isLoggedIn ? userName : "Tài khoản")">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
+                         alt="@(isLoggedIn ? $"Ảnh đại diện {userName}" : "Tài khoản")"
+                         class="profile-img" />
+                </button>
+
+                <div class="user-menu__panel" role="menu" aria-label="Tài khoản" hidden data-user-menu-panel>
+                    @if (isLoggedIn)
+                    {
+                        <div class="user-menu__meta">
+                            <p class="user-menu__name">@userName</p>
+                            <p class="user-menu__email">@Context.Session.GetUserEmail()</p>
+                        </div>
+                        <div class="user-menu__sep" role="separator" aria-hidden="true"></div>
+                        <a class="user-menu__item" role="menuitem" asp-page="/ChiTietNguoiDung">
+                            <i data-lucide="user"></i>
+                            Tài khoản
+                        </a>
+                        @if (isAdmin)
+                        {
+                            <a class="user-menu__item" role="menuitem" asp-page="/Admin">
+                                <i data-lucide="shield-check"></i>
+                                Quản trị
+                            </a>
+                        }
+                        <a class="user-menu__item user-menu__item--danger" role="menuitem" asp-page="/Dangxuat">
+                            <i data-lucide="log-out"></i>
+                            Đăng xuất
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="user-menu__item" role="menuitem" asp-page="/Dangnhap">
+                            <i data-lucide="log-in"></i>
+                            Đăng nhập
+                        </a>
+                        <a class="user-menu__item" role="menuitem" asp-page="/Dangky">
+                            <i data-lucide="user-plus"></i>
+                            Đăng ký
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

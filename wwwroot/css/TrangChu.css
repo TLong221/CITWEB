@@ -1,0 +1,248 @@
+/* Trang chủ — bento grid & mood */
+.main-header {
+    margin: 8px 0 32px;
+}
+
+.main-header h1 {
+    font-size: clamp(1.75rem, 4vw, 2rem);
+    margin-bottom: 8px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.main-header p {
+    color: var(--color-on-surface-variant);
+    font-size: 1.0625rem;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+.bento-grid .card {
+    padding: 28px 32px;
+}
+
+.mood-check {
+    grid-column: span 8;
+}
+
+.breathe-card {
+    grid-column: span 4;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+
+.trends-card {
+    grid-column: span 7;
+    background-color: var(--color-surface-low);
+}
+
+.insight-card {
+    grid-column: span 5;
+    background-color: rgba(236, 217, 244, 0.35);
+    border: 1px solid rgba(104, 89, 112, 0.08);
+}
+
+.card-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.card-title.white {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.card-title.no-margin {
+    margin-bottom: 0;
+    font-size: 1.125rem;
+}
+
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--color-on-surface-variant);
+}
+
+.mood-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.mood-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    background: var(--color-surface-low);
+    transition: transform 0.2s, background 0.2s;
+    font-family: inherit;
+}
+
+.mood-btn:hover {
+    transform: translateY(-2px);
+    background: var(--color-primary-container);
+}
+
+.mood-btn.active {
+    background: var(--color-primary-container);
+    box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.mood-btn .emoji {
+    font-size: 1.5rem;
+}
+
+.mood-btn .label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.breathe-desc {
+    opacity: 0.92;
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+}
+
+.breathe-card .btn-primary {
+    background: var(--color-surface-lowest);
+    color: var(--color-primary);
+}
+
+.trends-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.trends-stats {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 150px;
+    margin-top: 24px;
+    gap: 6px;
+}
+
+.chart-bars .bar {
+    flex: 1;
+    background: rgba(181, 234, 215, 0.45);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    min-height: 8px;
+    transition: height 0.35s ease;
+}
+
+.chart-bars .bar.is-empty {
+    background: rgba(192, 201, 196, 0.35);
+}
+
+.chart-bars .bar.today {
+    border: 2px dashed var(--color-primary);
+    background: var(--color-primary-container);
+}
+
+.bar-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: var(--color-on-surface-variant);
+}
+
+.mood-toast {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary-container);
+    color: var(--color-on-primary-container);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.mood-toast[hidden] {
+    display: none !important;
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.icon-circle {
+    background: rgba(116, 89, 69, 0.12);
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--color-tertiary);
+    display: flex;
+}
+
+.insight-text {
+    font-size: 0.9375rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.lesson-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lesson-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.lesson-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+}
+
+.lesson-title {
+    font-size: 0.75rem;
+    color: var(--color-on-surface-variant);
+}
+
+.icon-small {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 768px) {
+    .mood-check,
+    .breathe-card,
+    .trends-card,
+    .insight-card {
+        grid-column: span 12;
+    }
+}

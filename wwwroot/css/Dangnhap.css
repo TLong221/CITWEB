@@ -1,0 +1,231 @@
+/* Đăng nhập — dùng chung token từ site.css */
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+}
+
+.auth-shell {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+}
+
+.auth-hero {
+    display: none;
+    position: relative;
+    background: linear-gradient(135deg, rgba(181, 234, 215, 0.85), rgba(236, 217, 244, 0.55));
+    padding: 60px 40px;
+    color: #12352f;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent 35%), radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.4), transparent 40%);
+}
+
+.hero-copy {
+    position: relative;
+    max-width: 540px;
+}
+
+    .hero-copy h1 {
+        margin: 0;
+        font-size: clamp(32px, 5vw, 48px);
+        line-height: 1.05;
+    }
+
+    .hero-copy p {
+        margin: 22px 0 0;
+        max-width: 520px;
+        color: var(--color-on-surface-variant);
+        line-height: 1.8;
+    }
+
+.auth-panel {
+    display: grid;
+    place-items: center;
+    padding: 48px 20px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.brand-mark {
+    width: 68px;
+    height: 68px;
+    border-radius: 22px;
+    background: rgba(54, 103, 88, 0.12);
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    color: var(--color-primary);
+}
+
+.auth-header h2 {
+    margin: 0;
+    font-size: 38px;
+}
+
+.auth-header p {
+    margin: 12px 0 0;
+    color: var(--color-on-surface-variant);
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 430px;
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: grid;
+    gap: 10px;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--color-on-surface-variant);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(112, 121, 117, 0.2);
+    background: var(--color-surface);
+    color: var(--color-on-surface);
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .form-group input:focus {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 4px rgba(54, 103, 88, 0.12);
+    }
+
+.button {
+    width: 100%;
+    border-radius: 999px;
+    padding: 16px 20px;
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 700;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+    .button:hover {
+        transform: translateY(-1px);
+    }
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+    .divider::before,
+    .divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: rgba(112, 121, 117, 0.18);
+    }
+
+    .divider span {
+        color: var(--color-on-surface-variant);
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+.social-grid {
+    display: grid;
+    gap: 14px;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(112, 121, 117, 0.18);
+    background: #fff;
+    color: var(--color-on-surface);
+    cursor: pointer;
+}
+
+    .social-button img {
+        width: 20px;
+        height: 20px;
+    }
+
+.footer-text {
+    margin: 22px 0 0;
+    color: var(--color-on-surface-variant);
+    font-size: 15px;
+}
+
+.link {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.auth-hint {
+    width: 100%;
+    max-width: 430px;
+    margin: -8px auto 0;
+    font-size: 0.8125rem;
+    color: var(--color-on-surface-variant);
+    text-align: center;
+}
+
+.footer-text--sub {
+    margin-top: 8px !important;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 900px) {
+    .auth-shell {
+        grid-template-columns: 1.2fr 1fr;
+    }
+
+    .auth-hero {
+        display: flex;
+        align-items: center;
+        padding: 60px 56px;
+    }
+
+    .auth-panel {
+        padding: 60px 48px;
+    }
+}

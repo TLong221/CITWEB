@@ -1,0 +1,65 @@
+@page
+@{
+    ViewData["Title"] = "Nhịp thở";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Nhiptho.css" asp-append-version="true" />
+}
+
+<div class="page-content page-breathing">
+    <section class="breathing-section">
+        <header>
+            <h1 class="breathe-title">Thở chậm lại</h1>
+            <p class="breathe-subtitle">Dành một phút cho chính mình</p>
+        </header>
+
+        <div class="breathing-circle-container">
+            <div class="circle-outer"></div>
+            <div class="breathing-blob blob-1"></div>
+            <div class="breathing-blob blob-2"></div>
+            <div class="circle-core">
+                <i data-lucide="wind" style="width: 48px; height: 48px;"></i>
+            </div>
+        </div>
+
+        <div class="instruction-display">
+            <h2 id="breath-text">Hít vào...</h2>
+            <div class="dots">
+                <div class="dot" id="dot-in" style="opacity: 1;"></div>
+                <div class="dot" id="dot-out" style="opacity: 0.25;"></div>
+            </div>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <i data-lucide="timer" class="icon-secondary"></i>
+                <span class="label">Thời gian</span>
+                <span class="value">05:00</span>
+            </div>
+            <div class="status-card">
+                <i data-lucide="wind" class="icon-secondary"></i>
+                <span class="label">Kiểu thở</span>
+                <span class="value">4-7-8</span>
+            </div>
+            <div class="status-card">
+                <i data-lucide="heart" class="icon-secondary"></i>
+                <span class="label">Nhịp tim</span>
+                <span class="value">72 bpm</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="recommendation-card">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=200&h=200&fit=crop"
+             alt="Âm thanh gợi ý" class="rec-image" />
+        <div class="rec-content">
+            <h3>Âm thanh bổ trợ</h3>
+            <p>Mưa nhẹ và tiếng chuông gió để tăng cường sự tập trung.</p>
+            <div class="rec-actions">
+                <button type="button" class="btn-primary">Nghe ngay</button>
+                <button type="button" class="btn-outline">Đổi âm</button>
+            </div>
+        </div>
+    </section>
+</div>

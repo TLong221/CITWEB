@@ -1,0 +1,445 @@
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #efeaf6;
+    color: #1e2646;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 50px;
+    position: relative;
+}
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #3b7b67;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+    nav a {
+        text-decoration: none;
+        color: #777;
+        font-size: 15px;
+    }
+
+        nav a.active {
+            color: #3b7b67;
+            border-bottom: 2px solid #3b7b67;
+            padding-bottom: 5px;
+        }
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+    .profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+/* TITLE */
+
+.title h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* GRID */
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+.card {
+    background: #f8f8fb;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+/* CALORIES */
+
+.calories-card {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(#3d7a68 70%, #d8dbf6 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner {
+    width: 135px;
+    height: 135px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .inner h2 {
+        font-size: 38px;
+    }
+
+    .inner span {
+        font-size: 14px;
+        color: #777;
+    }
+
+.calories-info {
+    flex: 1;
+}
+
+.line-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.progress {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    width: 35%;
+    height: 100%;
+    background: #3d7a68;
+    border-radius: 20px;
+}
+
+.meal-list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+    .meal-list h4 {
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #777;
+    }
+
+/* SEARCH */
+
+.search-box {
+    background: #f1f2fa;
+    border-radius: 40px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+    .search-box input {
+        border: none;
+        background: none;
+        width: 100%;
+        outline: none;
+    }
+
+/* JOURNAL */
+
+.journal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .journal-header button {
+        background: #3d7a68;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+/* FOOD */
+
+.food-item {
+    background: #f4f5fb;
+    padding: 18px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.food-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.food-icon {
+    width: 45px;
+    height: 45px;
+    background: #dff1ea;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3d7a68;
+}
+
+    .food-icon.purple {
+        background: #ece4ff;
+        color: #7f57d9;
+    }
+
+.food-item h4 {
+    margin-bottom: 5px;
+}
+
+.food-item p {
+    color: #888;
+    font-size: 14px;
+}
+
+/* EMPTY */
+
+.empty-box {
+    border: 2px dashed #ddd;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: #aaa;
+    margin-top: 15px;
+}
+
+    .empty-box i {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+/* RIGHT */
+
+.nutrition-card {
+    background: #f7f1fb;
+    margin-bottom: 20px;
+}
+
+    .nutrition-card h3 {
+        margin-bottom: 20px;
+    }
+
+.nutrition-item {
+    margin-bottom: 20px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.bar {
+    width: 100%;
+    height: 7px;
+    background: #ddd;
+    border-radius: 20px;
+}
+
+.fill {
+    height: 100%;
+    border-radius: 20px;
+}
+
+.protein {
+    width: 45%;
+    background: #7d63c7;
+}
+
+.carbs {
+    width: 60%;
+    background: #d39b6d;
+}
+
+.fat {
+    width: 30%;
+    background: #c07a7a;
+}
+
+/* ADVICE */
+
+.advice-card {
+    background: #edf7f3;
+    margin-bottom: 20px;
+}
+
+.advice-top {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.light-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #d5efe5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3d7a68;
+}
+
+.advice-top p {
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.suggest-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 16px;
+}
+
+    .suggest-box h5 {
+        margin-bottom: 15px;
+        color: #777;
+    }
+
+.suggest-food {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+    .suggest-food img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 14px;
+    }
+
+/* WATER */
+
+.water-card {
+    background: #fdf2f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .water-card h2 {
+        margin: 10px 0;
+    }
+
+    .water-card span {
+        color: #888;
+        font-size: 18px;
+    }
+
+.drops {
+    display: flex;
+    gap: 8px;
+}
+
+    .drops i {
+        color: #ccc;
+    }
+
+        .drops i.active {
+            color: #3d7a68;
+        }
+
+.water-card button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* FLOAT */
+
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: #3d7a68;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calories-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        display: none;
+    }
+}

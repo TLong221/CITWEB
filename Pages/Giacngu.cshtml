@@ -1,0 +1,86 @@
+@page
+@{
+    ViewData["Title"] = "Giấc ngủ";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Giacngu.css" asp-append-version="true" />
+}
+
+<div class="page-content">
+    <section class="page-header">
+        <h1 class="page-title">Theo dõi giấc ngủ</h1>
+        <p class="page-desc">Bạn đã ngủ ngon hơn đêm qua. Cơ thể bạn đang được phục hồi tốt với chu kỳ REM sâu.</p>
+    </section>
+
+    <div class="bento-grid">
+        <div class="card sleep-quality">
+            <p class="card-label">Chất lượng giấc ngủ</p>
+            <div class="progress-ring">
+                <svg width="180" height="180" aria-hidden="true">
+                    <circle class="bg" cx="90" cy="90" r="80"></circle>
+                    <circle class="meter" cx="90" cy="90" r="80"></circle>
+                </svg>
+                <div class="ring-text">
+                    <span id="sleep-quality-pct" class="percent">—</span>
+                    <span id="sleep-quality-rating" class="rating">—</span>
+                </div>
+            </div>
+            <p id="sleep-quality-sub" class="sub-text">Đang tính từ nhịp nghỉ và mood gần đây…</p>
+        </div>
+
+        <div class="stats-column">
+            <div class="stat-card mint">
+                <div class="icon-circle"><i data-lucide="clock"></i></div>
+                <div class="stat-info">
+                    <p>Thời gian ngủ</p>
+                    <h3>7h 45m</h3>
+                </div>
+            </div>
+            <div class="stat-card purple">
+                <div class="icon-circle"><i data-lucide="moon"></i></div>
+                <div class="stat-info">
+                    <p>Giờ ngủ</p>
+                    <h3>10:30 PM</h3>
+                </div>
+            </div>
+            <div class="stat-card peach">
+                <div class="icon-circle"><i data-lucide="sun"></i></div>
+                <div class="stat-info">
+                    <p>Giờ thức</p>
+                    <h3>06:15 AM</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="card trends">
+            <div class="card-header">
+                <h2>Xu hướng hàng tuần</h2>
+                <span>Trung bình: 7h 12m</span>
+            </div>
+            <div id="sleep-week-chart" class="chart-container"></div>
+        </div>
+
+        <div class="card tips">
+            <h3>Mẹo ngủ ngon</h3>
+            <p>Thử tinh dầu oải hương hoặc giảm thời gian sử dụng màn hình 30 phút trước khi ngủ để cải thiện chất lượng nghỉ ngơi.</p>
+            <button type="button" class="btn-more">Tìm hiểu thêm</button>
+        </div>
+
+        <div class="card cycles">
+            <h2>Phân tích chu kỳ</h2>
+            <div class="cycle-bar">
+                <div class="segment deep" style="width: 25%"></div>
+                <div class="segment light" style="width: 45%"></div>
+                <div class="segment rem" style="width: 20%"></div>
+                <div class="segment awake" style="width: 10%"></div>
+            </div>
+            <div class="legend">
+                <div class="legend-item"><span class="dot deep"></span><p>Sâu (25%)</p></div>
+                <div class="legend-item"><span class="dot light"></span><p>Nông (45%)</p></div>
+                <div class="legend-item"><span class="dot rem"></span><p>REM (20%)</p></div>
+                <div class="legend-item"><span class="dot awake"></span><p>Thức (10%)</p></div>
+            </div>
+        </div>
+    </div>
+</div>

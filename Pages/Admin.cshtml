@@ -1,0 +1,107 @@
+﻿@page
+@model AdminModel
+@{
+    ViewData["Title"] = "Quản trị";
+}
+
+<div class="page-content">
+    <section class="page-header">
+        <h1 class="page-title">Khu vực quản trị</h1>
+        <p class="page-desc">Xin chào @Model.AdminName. Chỉ tài khoản admin mới có quyền truy cập khu vực này.</p>
+    </section>
+
+    @if (!string.IsNullOrWhiteSpace(Model.FeedbackMessage))
+    {
+        <p class="auth-alert auth-alert--error">@Model.FeedbackMessage</p>
+    }
+
+    <section class="admin-grid">
+        <article class="card admin-actions" style="grid-column: span 5;">
+            <h3>@(string.IsNullOrWhiteSpace(Model.EditingId) ? "Tạo người dùng mới" : "Cập nhật người dùng")</h3>
+            <form method="post" asp-page-handler="SaveUser" class="account-form">
+                <input asp-for="EditingId" type="hidden" />
+                <div class="profile-edit-grid">
+                    <div class="profile-edit-grid__full">
+                        <label class="account-label" asp-for="FullName">Họ tên</label>
+                        <input class="profile-input" asp-for="FullName" />
+                    </div>
+                    <div class="profile-edit-grid__full">
+                        <label class="account-label" asp-for="Email">Email</label>
+                        <input class="profile-input" asp-for="Email" type="email" disabled="@(!string.IsNullOrWhiteSpace(Model.EditingId))" />
+                    </div>
+                    <div>
+                        <label class="account-label" asp-for="Role">Vai trò</label>
+                        <select class="profile-input" asp-for="Role">
+                            <option value="User">User</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="account-label" asp-for="IsActive">Trạng thái</label>
+                        <select class="profile-input" asp-for="IsActive">
+                            <option value="true">Hoạt động</option>
+                            <option value="false">Khóa</option>
+                        </select>
+                    </div>
+                    <div class="profile-edit-grid__full">
+                        <label class="account-label" asp-for="Password">
+                            @(string.IsNullOrWhiteSpace(Model.EditingId) ? "Mật khẩu" : "Mật khẩu mới (để trống nếu không đổi)")
+                        </label>
+                        <input class="profile-input" asp-for="Password" type="password" />
+                    </div>
+                </div>
+                <div class="account-actions">
+                    <button type="submit" class="btn-primary">Lưu</button>
+                </div>
+            </form>
+            @if (!string.IsNullOrWhiteSpace(Model.EditingId))
+            {
+                <form method="post" asp-page-handler="CancelEdit" style="margin-top:8px;">
+                    <button type="submit" class="btn-outline">Hủy chỉnh sửa</button>
+                </form>
+            }
+        </article>
+
+        <article class="card" style="grid-column: span 7;">
+            <h3>Danh sách người dùng</h3>
+            <div style="overflow:auto; margin-top:12px;">
+                <table class="user-admin-table">
+                    <thead>
+                        <tr>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Vai trò</th>
+                            <th>Trạng thái</th>
+                            <th>Lần đăng nhập gần nhất</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var u in Model.Users)
+                        {
+                            <tr>
+                                <td>@u.FullName</td>
+                                <td>@u.Email</td>
+                                <td>
+                                    <span class="role-badge @(u.Role == "Admin" ? "role-badge--admin" : "role-badge--user")">@u.Role</span>
+                                </td>
+                                <td>@(u.IsActive ? "Hoạt động" : "Khóa")</td>
+                                <td>@u.LastLoginText</td>
+                                <td>
+                                    <form method="post" asp-page-handler="EditUser" style="display:inline;">
+                                        <input type="hidden" name="id" value="@u.Id" />
+                                        <button type="submit" class="btn-outline">Sửa</button>
+                                    </form>
+                                    <form method="post" asp-page-handler="DeleteUser" style="display:inline;">
+                                        <input type="hidden" name="id" value="@u.Id" />
+                                        <button type="submit" class="btn-outline">Xóa</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    </section>
+</div>

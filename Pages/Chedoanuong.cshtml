@@ -1,0 +1,36 @@
+﻿@page
+@model ChedoanuongModel
+@{
+    ViewData["Title"] = "Dinh dưỡng";
+}
+
+<div class="page-content">
+    <section class="page-header">
+        <h1 class="page-title">Chế độ ăn uống</h1>
+        <p class="page-desc">Theo dõi dinh dưỡng hằng ngày để cải thiện năng lượng và giấc ngủ.</p>
+    </section>
+
+    <section class="nutrition-grid">
+        <article class="card">
+            <h3>Tổng calo hôm nay</h3>
+            <p class="big-number">660 / 2200 kcal</p>
+            <p class="section-desc">Bạn còn khoảng 1,540 kcal cho phần còn lại của ngày.</p>
+        </article>
+
+        <article class="card">
+            <h3>Nhật ký bữa ăn</h3>
+            <ul class="simple-list">
+                <li><strong>Bữa sáng</strong><span>Trứng ốp la & bánh mì (320 kcal)</span></li>
+                <li><strong>Bữa trưa</strong><span>Salad ức gà (340 kcal)</span></li>
+                <li><strong>Bữa tối</strong><span>Chưa ghi nhận</span></li>
+            </ul>
+            <button class="btn-primary">+ Thêm món ăn</button>
+        </article>
+
+        <article class="card">
+            <h3>Uống nước</h3>
+            <p class="big-number">1.2L / 2.5L</p>
+            <button class="btn-outline">+ 250ml</button>
+        </article>
+    </section>
+</div>

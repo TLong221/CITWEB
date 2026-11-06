@@ -1,0 +1,66 @@
+@page
+@{
+    ViewData["Title"] = "Xu hướng";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Thongke.css" asp-append-version="true" />
+}
+
+<div class="page-content">
+    <section class="page-header">
+        <h1 class="page-title">Xu hướng cảm xúc</h1>
+        <p id="stats-page-status" class="page-desc">Đang tải thống kê…</p>
+    </section>
+
+    <section class="dashboard-grid">
+        <div class="dashboard-header">
+            <h2 class="section-title">Thống kê cảm xúc</h2>
+            <p class="section-desc">Biểu đồ cập nhật theo mỗi lần bạn ghi nhận mood.</p>
+        </div>
+
+        <div class="card mood-trend-card">
+            <div class="card-header">
+                <h3>Xu hướng 7 ngày</h3>
+                <span class="badge">T2 — CN</span>
+            </div>
+            <div id="stats-chart-bars" class="chart-container" role="img" aria-label="Biểu đồ cảm xúc 7 ngày"></div>
+        </div>
+
+        <div class="stats-column">
+            <div class="stat-card mint">
+                <p class="label">Tâm trạng phổ biến nhất</p>
+                <div class="value-row">
+                    <span id="stat-dominant-icon" class="stat-emoji" aria-hidden="true">—</span>
+                    <span id="stat-dominant-mood" class="value">—</span>
+                </div>
+                <p id="stat-dominant-desc" class="description">Ghi nhận cảm xúc để thấy xu hướng.</p>
+            </div>
+            <div class="stat-card lavender">
+                <p class="label">Cường độ cảm xúc</p>
+                <div class="value-row">
+                    <i data-lucide="zap" aria-hidden="true"></i>
+                    <span id="stat-stability" class="value">—</span>
+                </div>
+                <p id="stat-stability-desc" class="description">Cần thêm vài ngày ghi nhận.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="card quick-mood-section">
+        <h3 class="section-title section-title--sm">Ghi nhanh hôm nay</h3>
+        <p class="section-desc section-desc--tight">Chọn một cảm xúc — biểu đồ sẽ cập nhật ngay.</p>
+        <div id="stats-quick-mood" class="quick-mood-grid"></div>
+    </section>
+
+    <section class="journal-section">
+        <div class="section-header">
+            <div>
+                <h3>Nhật ký gần đây</h3>
+                <p class="section-desc">Tự động tạo khi bạn ghi mood ở Trang chủ hoặc tại đây.</p>
+            </div>
+            <a asp-page="/Index" class="view-all-btn">Về tổng quan</a>
+        </div>
+        <div id="journal-entries-list" class="entries-list"></div>
+    </section>
+</div>

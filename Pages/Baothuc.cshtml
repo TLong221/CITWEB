@@ -1,0 +1,38 @@
+﻿@page
+@model BaothucModel
+@{
+    ViewData["Title"] = "Báo thức";
+}
+
+<div class="page-content">
+    <section class="page-header">
+        <h1 class="page-title">Báo thức thông minh</h1>
+        <p class="page-desc">Thiết lập giờ thức giấc nhẹ nhàng để bắt đầu ngày mới tỉnh táo hơn.</p>
+    </section>
+
+    <section class="alarm-grid">
+        <article class="card">
+            <h3>Báo thức tiếp theo</h3>
+            <p class="alarm-time">06:15 AM</p>
+            <p class="section-desc">Đánh thức trong khung ngủ nhẹ từ 05:45 - 06:15.</p>
+            <button class="btn-primary">Bật báo thức thông minh</button>
+        </article>
+
+        <article class="card">
+            <h3>Âm thanh thức giấc</h3>
+            <div class="sound-list">
+                <button class="chip chip--active">Piano dịu êm</button>
+                <button class="chip">Tiếng chim rừng</button>
+                <button class="chip">Sóng biển</button>
+            </div>
+        </article>
+
+        <article class="card">
+            <h3>Lịch báo thức</h3>
+            <ul class="alarm-list">
+                <li><strong>07:30 AM</strong><span>Mỗi ngày</span></li>
+                <li><strong>08:00 AM</strong><span>Cuối tuần</span></li>
+            </ul>
+        </article>
+    </section>
+</div>

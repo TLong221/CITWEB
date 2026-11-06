@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(ViewData["Title"] != null ? ViewData["Title"] + " · Serene" : "Serene")</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-wrapper">
+        @if (!(ViewData["HideNav"] as bool? ?? false))
+        {
+            @await Html.PartialAsync("_Header")
+        }
+        <main class="@((ViewData["HideNav"] as bool? ?? false) ? "main--auth" : null)">
+            @RenderBody()
+        </main>
+        @if (!(ViewData["HideNav"] as bool? ?? false))
+        {
+            @await Html.PartialAsync("_Footer")
+        }
+    </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@page
+@model NhatkyModel
+@{
+    ViewData["Title"] = "Nhật ký";
+}
+
+<div class="page-content">
+    <section class="page-header">
+        <h1 class="page-title">Nhật ký cảm xúc</h1>
+        <p class="page-desc">Ghi nhanh cảm xúc của bạn để hệ thống gợi ý bài thở và hoạt động phù hợp.</p>
+    </section>
+
+    <section class="journal-grid">
+        <article class="card">
+            <h3>Hôm nay bạn cảm thấy thế nào?</h3>
+            <div class="mood-row">
+                <button class="chip">😊 Vui vẻ</button>
+                <button class="chip">😌 Bình tĩnh</button>
+                <button class="chip">😔 Mệt mỏi</button>
+                <button class="chip">😟 Lo lắng</button>
+            </div>
+            <textarea class="journal-note" rows="6" placeholder="Viết vài dòng về ngày hôm nay..."></textarea>
+            <button class="btn-primary">Lưu nhật ký</button>
+        </article>
+
+        <article class="card">
+            <h3>Lưu bút gần đây</h3>
+            <ul class="journal-list">
+                <li><strong>Hôm nay</strong><span>Giữ được nhịp thở đều và tập trung tốt hơn.</span></li>
+                <li><strong>Hôm qua</strong><span>Mất ngủ nhẹ, cần đi ngủ sớm hơn.</span></li>
+                <li><strong>3 ngày trước</strong><span>Tâm trạng tích cực sau khi đi bộ 30 phút.</span></li>
+            </ul>
+        </article>
+    </section>
+</div>

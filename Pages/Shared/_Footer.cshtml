@@ -1,0 +1,29 @@
+@using CITWEB.Services
+@{
+    var path = (ViewContext.HttpContext.Request.Path.Value ?? "/").TrimEnd('/').ToLowerInvariant();
+    if (string.IsNullOrEmpty(path)) path = "/";
+    var isHome = path == "/" || path == "/index";
+    var isLoggedIn = Context.Session.IsLoggedIn();
+    var accountHref = isLoggedIn ? "/ChiTietNguoiDung" : "/Dangnhap";
+    var accountActive = path.Contains("chitietnguoidung") || path.Contains("dangnhap") || path.Contains("dangky") || path.Contains("admin");
+}
+<nav class="bottom-nav" aria-label="Điều hướng di động">
+    <a href="/" class="nav-item @(isHome ? "active" : "")" title="Tổng quan">
+        <i data-lucide="home"></i>
+    </a>
+    <a href="/Nhatky" class="nav-item @(path.Contains("nhatky") ? "active" : "")" title="Nhật ký">
+        <i data-lucide="book-open"></i>
+    </a>
+    <a href="/Nhiptho" class="nav-item @(path.Contains("nhiptho") ? "active" : "")" title="Nhịp thở">
+        <i data-lucide="wind"></i>
+    </a>
+    <a href="/Giacngu" class="nav-item @(path.Contains("giacngu") ? "active" : "")" title="Giấc ngủ">
+        <i data-lucide="moon"></i>
+    </a>
+    <a href="/Thongke" class="nav-item @(path.Contains("thongke") ? "active" : "")" title="Xu hướng">
+        <i data-lucide="bar-chart-2"></i>
+    </a>
+    <a href="@accountHref" class="nav-item @(accountActive ? "active" : "")" title="Tài khoản">
+        <i data-lucide="user"></i>
+    </a>
+</nav>

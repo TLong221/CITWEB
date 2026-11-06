@@ -1,0 +1,79 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Tổng quan";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/TrangChu.css" asp-append-version="true" />
+}
+
+<div class="container">
+    <section class="main-header">
+        <h1>Chào buổi sáng, @Model.DisplayName</h1>
+        <p>Dành một khoảnh khắc để lắng nghe bản thân mình hôm nay.</p>
+    </section>
+
+    <div class="bento-grid">
+        <section class="card mood-check">
+            <h2 class="card-title">Bạn đang cảm thấy thế nào?</h2>
+            <div id="mood-options-root" class="mood-options"></div>
+            <p id="mood-toast" class="mood-toast" hidden role="status"></p>
+        </section>
+
+        <section class="card breathe-card">
+            <div>
+                <h2 class="card-title white">Hơi thở 2 phút</h2>
+                <p class="breathe-desc">Lấy lại sự cân bằng ngay lập tức.</p>
+            </div>
+            <a asp-page="/Nhiptho" class="btn-primary">
+                <i data-lucide="play" class="icon-small"></i>
+                Bắt đầu
+            </a>
+        </section>
+
+        <section class="card trends-card">
+            <div class="trends-header">
+                <div>
+                    <h2 class="card-title">Xu hướng cảm xúc</h2>
+                    <p id="home-trend-desc" class="card-desc">Chọn cảm xúc hôm nay để bắt đầu theo dõi.</p>
+                </div>
+                <div class="trends-stats">
+                    <i data-lucide="trending-up"></i>
+                    <span id="home-trend-text">Ghi mood hàng ngày</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div id="home-mood-chart" class="chart-bars"></div>
+                <div class="bar-labels">
+                    <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card insight-card">
+            <div class="insight-header">
+                <div class="icon-circle"><i data-lucide="lightbulb"></i></div>
+                <h2 class="card-title no-margin">Gợi ý cho bạn</h2>
+            </div>
+            <p class="insight-text">Bạn thường cảm thấy lo lắng vào chiều thứ Tư.</p>
+            <div class="lesson-box">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=100&auto=format&fit=crop"
+                     alt="Bài học" class="lesson-img" />
+                <div>
+                    <p class="lesson-label">Bài học mới</p>
+                    <p class="lesson-title">Cách đối mặt với áp lực công việc</p>
+                </div>
+            </div>
+        </section>
+
+        @if (Model.IsAdmin)
+        {
+            <section class="card mood-check">
+                <h2 class="card-title">Bảng quản trị</h2>
+                <p class="card-desc">Bạn đang đăng nhập với vai trò Admin. Truy cập nhanh khu vực quản trị hệ thống.</p>
+                <a asp-page="/Admin" class="btn-primary" style="margin-top:16px;">Đi đến trang quản trị</a>
+            </section>
+        }
+    </div>
+</div>
